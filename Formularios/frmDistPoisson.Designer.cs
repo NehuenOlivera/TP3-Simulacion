@@ -34,12 +34,12 @@ namespace TP3_SIM.Formularios
             this.label3 = new System.Windows.Forms.Label();
             this.txtCantNum = new System.Windows.Forms.MaskedTextBox();
             this.txtLambda = new System.Windows.Forms.NumericUpDown();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridPoisson = new System.Windows.Forms.DataGridView();
             this.Iteración = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nrosAleatoriosPoisson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerarPoisson = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtLambda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPoisson)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -101,18 +101,18 @@ namespace TP3_SIM.Formularios
             0,
             131072});
             // 
-            // dataGridView1
+            // gridPoisson
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridPoisson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPoisson.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Iteración,
             this.nrosAleatoriosPoisson});
-            this.dataGridView1.Location = new System.Drawing.Point(96, 241);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(367, 150);
-            this.dataGridView1.TabIndex = 5;
+            this.gridPoisson.Location = new System.Drawing.Point(75, 188);
+            this.gridPoisson.Name = "gridPoisson";
+            this.gridPoisson.RowHeadersWidth = 62;
+            this.gridPoisson.RowTemplate.Height = 28;
+            this.gridPoisson.Size = new System.Drawing.Size(570, 358);
+            this.gridPoisson.TabIndex = 5;
             // 
             // Iteración
             // 
@@ -130,12 +130,13 @@ namespace TP3_SIM.Formularios
             // 
             // btnGenerarPoisson
             // 
-            this.btnGenerarPoisson.Location = new System.Drawing.Point(539, 241);
+            this.btnGenerarPoisson.Location = new System.Drawing.Point(821, 252);
             this.btnGenerarPoisson.Name = "btnGenerarPoisson";
             this.btnGenerarPoisson.Size = new System.Drawing.Size(120, 67);
             this.btnGenerarPoisson.TabIndex = 6;
             this.btnGenerarPoisson.Text = "Generar";
             this.btnGenerarPoisson.UseVisualStyleBackColor = true;
+            this.btnGenerarPoisson.Click += new System.EventHandler(this.btnGenerarPoisson_Click);
             // 
             // frmDistPoisson
             // 
@@ -143,7 +144,7 @@ namespace TP3_SIM.Formularios
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
             this.Controls.Add(this.btnGenerarPoisson);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gridPoisson);
             this.Controls.Add(this.txtLambda);
             this.Controls.Add(this.txtCantNum);
             this.Controls.Add(this.label3);
@@ -157,7 +158,7 @@ namespace TP3_SIM.Formularios
             this.Text = "TP3 - Simulación - Distribución Poisson";
             this.Load += new System.EventHandler(this.frmDistPoisson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtLambda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPoisson)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,7 +171,7 @@ namespace TP3_SIM.Formularios
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox txtCantNum;
         private System.Windows.Forms.NumericUpDown txtLambda;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridPoisson;
         private System.Windows.Forms.DataGridViewTextBoxColumn Iteración;
         private System.Windows.Forms.DataGridViewTextBoxColumn nrosAleatoriosPoisson;
         private System.Windows.Forms.Button btnGenerarPoisson;
