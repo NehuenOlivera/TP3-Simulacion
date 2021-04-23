@@ -16,5 +16,10 @@ namespace TP3_SIM.Formularios
         {
             InitializeComponent();
         }
+
+        private void frmDistPoisson_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
