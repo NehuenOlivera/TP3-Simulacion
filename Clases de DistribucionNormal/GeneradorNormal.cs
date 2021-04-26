@@ -16,7 +16,7 @@ namespace TP3_SIM
         private int cantNum { get; set; }
         private List<double> numerosDistNormal { get; set; }
         private List<double> numerosRandom { get; set; }
-        
+
 
 
         public GeneradorNormal(int cantidad, double media, double desviacion)
@@ -26,8 +26,8 @@ namespace TP3_SIM
             this.cantNum = cantidad;
             this.numerosDistNormal = new List<double>();
             this.numerosRandom = new List<double>();
-            
-            
+
+
         }
 
 
@@ -44,7 +44,7 @@ namespace TP3_SIM
                     //Calculo de numeros randoms
                     rnd1 = random1.NextDouble();
                     rnd2 = random1.NextDouble();
-                 
+
                     //Agrego a lista de numeros randoms
                     numerosRandom.Add(rnd1);
                     numerosRandom.Add(rnd2);
@@ -65,13 +65,13 @@ namespace TP3_SIM
         {
             datos.Rows.Clear();
 
-            for (int i = 0; i < cantNum; i+=2)
+            for (int i = 0; i < cantNum; i += 2)
             {
                 DataGridViewRow fila = new DataGridViewRow();
                 DataGridViewTextBoxCell random1 = new DataGridViewTextBoxCell();
                 DataGridViewTextBoxCell random2 = new DataGridViewTextBoxCell();
                 DataGridViewTextBoxCell num1 = new DataGridViewTextBoxCell();
-                DataGridViewTextBoxCell num2= new DataGridViewTextBoxCell();
+                DataGridViewTextBoxCell num2 = new DataGridViewTextBoxCell();
 
                 random1.Value = numerosRandom[i].ToString("F4");
                 random2.Value = numerosRandom[i + 1].ToString("F4");
@@ -87,10 +87,10 @@ namespace TP3_SIM
                 {
                     fila.Cells.Add(num2);
                 }
-                
+
                 datos.Rows.Add(fila);
             }
-            
+
 
         }
     }

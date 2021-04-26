@@ -77,8 +77,8 @@
     <Compile Include="Formularios\frmDistUniforme.Designer.cs">
       <DependentUpon>frmDistUniforme.cs</DependentUpon>
     </Compile>
-    <Compile Include="GeneradorChiNormal.cs" />
-    <Compile Include="GeneradorNormal.cs" />
+    <Compile Include="Clases de DistribucionNormal\GeneradorChiNormal.cs" />
+    <Compile Include="Clases de DistribucionNormal\GeneradorNormal.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

@@ -30,6 +30,8 @@ namespace TP3_SIM.Formularios
             double desviacion = Double.Parse(txtDesviacionNormal.Text);
             Int32 intervalos = Int32.Parse(cmbCantIntervalosNormal.Text);
 
+            bool impar = true;
+            if (cantNumeros % 2 == 0) impar = false;
 
             GeneradorNormal generadorNormal = new GeneradorNormal(cantNumeros, media, desviacion);
 
@@ -37,11 +39,14 @@ namespace TP3_SIM.Formularios
 
             generadorNormal.CargarTablaNumeros(gridNumDistNormal);
 
-            GeneradorChiNormal generadorChi = new GeneradorChiNormal(numDistribucionNormal, intervalos, grafNomal);
+            GeneradorChiNormal generadorChi = new GeneradorChiNormal(numDistribucionNormal, intervalos, grafNomal, media, desviacion, impar);
 
             generadorChi.CalcularIntervalos();
             generadorChi.CalcularFrecObservada();
+            generadorChi.CalcularFrecEsperada();
             generadorChi.GenerarGraficoNormal();
+            generadorChi.CargarTablaDistribucion(gridDistribucion);
+            generadorChi.CalcularFrecEsperadasAgrupadad();
             generadorChi.CargarTablaChi(gridChi);
         }
     }
