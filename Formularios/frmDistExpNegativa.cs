@@ -105,7 +105,12 @@ namespace TP3_SIM.Formularios
                         chartExpNegativaFeFo, lambda);
 
                     calculadorChiCuadradoExpNegativo.Calcular();
-
+                    lblMinimo.Text = "Mínimo: " + calculadorChiCuadradoExpNegativo.min.ToString("F4");
+                    lblMaximo.Text = "Máximo: " + calculadorChiCuadradoExpNegativo.max.ToString("F4");
+                    lblCCalculado.Text = "C Calculado: " + calculadorChiCuadradoExpNegativo.cAcum.ToString("F4");
+                    lblMaximo.Visible = true;
+                    lblMinimo.Visible = true;
+                    lblCCalculado.Visible = true;
                 }
                 else
                 {

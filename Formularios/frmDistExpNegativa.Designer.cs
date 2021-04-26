@@ -29,11 +29,11 @@ namespace TP3_SIM.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelParametros = new System.Windows.Forms.GroupBox();
             this.lblIntervalos = new System.Windows.Forms.Label();
             this.cmbIntervalos = new System.Windows.Forms.ComboBox();
@@ -62,6 +62,9 @@ namespace TP3_SIM.Formularios
             this.label2 = new System.Windows.Forms.Label();
             this.chartExpNegativaFeFo = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lblGrafico = new System.Windows.Forms.Label();
+            this.lblMinimo = new System.Windows.Forms.Label();
+            this.lblMaximo = new System.Windows.Forms.Label();
+            this.lblCCalculado = new System.Windows.Forms.Label();
             this.panelParametros.SuspendLayout();
             this.panelRadioButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNrosGenerados)).BeginInit();
@@ -243,8 +246,8 @@ namespace TP3_SIM.Formularios
             // 
             // colIteracion
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colIteracion.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colIteracion.DefaultCellStyle = dataGridViewCellStyle9;
             this.colIteracion.HeaderText = "Iteración";
             this.colIteracion.MinimumWidth = 9;
             this.colIteracion.Name = "colIteracion";
@@ -253,8 +256,8 @@ namespace TP3_SIM.Formularios
             // 
             // colNroGenerado
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colNroGenerado.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colNroGenerado.DefaultCellStyle = dataGridViewCellStyle10;
             this.colNroGenerado.HeaderText = "Nros.Generados";
             this.colNroGenerado.MinimumWidth = 9;
             this.colNroGenerado.Name = "colNroGenerado";
@@ -346,16 +349,16 @@ namespace TP3_SIM.Formularios
             // 
             // chartExpNegativaFeFo
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartExpNegativaFeFo.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartExpNegativaFeFo.Legends.Add(legend1);
+            chartArea5.Name = "ChartArea1";
+            this.chartExpNegativaFeFo.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chartExpNegativaFeFo.Legends.Add(legend5);
             this.chartExpNegativaFeFo.Location = new System.Drawing.Point(12, 489);
             this.chartExpNegativaFeFo.Name = "chartExpNegativaFeFo";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartExpNegativaFeFo.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartExpNegativaFeFo.Series.Add(series5);
             this.chartExpNegativaFeFo.Size = new System.Drawing.Size(1604, 464);
             this.chartExpNegativaFeFo.TabIndex = 72;
             this.chartExpNegativaFeFo.Text = "chart1";
@@ -369,11 +372,44 @@ namespace TP3_SIM.Formularios
             this.lblGrafico.TabIndex = 73;
             this.lblGrafico.Text = "Grafico Frec.Esperada, Frec. Observada";
             // 
+            // lblMinimo
+            // 
+            this.lblMinimo.AutoSize = true;
+            this.lblMinimo.Location = new System.Drawing.Point(750, 457);
+            this.lblMinimo.Name = "lblMinimo";
+            this.lblMinimo.Size = new System.Drawing.Size(104, 29);
+            this.lblMinimo.TabIndex = 74;
+            this.lblMinimo.Text = "Minimo: ";
+            this.lblMinimo.Visible = false;
+            // 
+            // lblMaximo
+            // 
+            this.lblMaximo.AutoSize = true;
+            this.lblMaximo.Location = new System.Drawing.Point(1118, 457);
+            this.lblMaximo.Name = "lblMaximo";
+            this.lblMaximo.Size = new System.Drawing.Size(109, 29);
+            this.lblMaximo.TabIndex = 75;
+            this.lblMaximo.Text = "Maximo: ";
+            this.lblMaximo.Visible = false;
+            // 
+            // lblCCalculado
+            // 
+            this.lblCCalculado.AutoSize = true;
+            this.lblCCalculado.Location = new System.Drawing.Point(1451, 457);
+            this.lblCCalculado.Name = "lblCCalculado";
+            this.lblCCalculado.Size = new System.Drawing.Size(156, 29);
+            this.lblCCalculado.TabIndex = 76;
+            this.lblCCalculado.Text = "C Calculado: ";
+            this.lblCCalculado.Visible = false;
+            // 
             // frmDistExpNegativa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1630, 963);
+            this.Controls.Add(this.lblCCalculado);
+            this.Controls.Add(this.lblMaximo);
+            this.Controls.Add(this.lblMinimo);
             this.Controls.Add(this.lblGrafico);
             this.Controls.Add(this.chartExpNegativaFeFo);
             this.Controls.Add(this.label2);
@@ -431,5 +467,8 @@ namespace TP3_SIM.Formularios
         private System.Windows.Forms.Label lblIntervalos;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartExpNegativaFeFo;
         private System.Windows.Forms.Label lblGrafico;
+        private System.Windows.Forms.Label lblMinimo;
+        private System.Windows.Forms.Label lblMaximo;
+        private System.Windows.Forms.Label lblCCalculado;
     }
 }

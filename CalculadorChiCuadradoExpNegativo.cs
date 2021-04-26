@@ -15,9 +15,10 @@ namespace TP3_SIM
         private List<double> nrosAleatorios { get; set; }
         private double anchoIntervalo { get; set; }
         private Chart graficoChi { get; set; }
-        private double min { get; set; }
-        private double max { get; set; }
+        public double min { get; set; }
+        public double max { get; set; }
         private double lambda { get; set; }
+        public double cAcum {get; set;}
 
         public CalculadorChiCuadradoExpNegativo(DataGridView grid, int cantIntervalos, List<double> nrosAleatorios, Chart graficoChi, double lambda)
         {
@@ -26,6 +27,7 @@ namespace TP3_SIM
             this.nrosAleatorios = nrosAleatorios;
             this.graficoChi = graficoChi;
             graficoChi.Series.Clear();
+            graficoChi.ResetAutoValues();
             min = nrosAleatorios.Min();
             max = nrosAleatorios.Max();
             anchoIntervalo = (max - min) / (double)cantIntervalos;
@@ -44,14 +46,14 @@ namespace TP3_SIM
             for (int i = 0; i < cantIntervalos; i++)
             {
                 double intervaloInferior = min + (i * anchoIntervalo);
-                double intervaloSuperior = ((i + 1) * anchoIntervalo) - 0.0001;
+                double intervaloSuperior = ((i + 1) * anchoIntervalo);
                 string intervalo = $"[{intervaloInferior.ToString("F2")}, {intervaloSuperior.ToString("F2")}]";
                 intervalosLabel.Add(intervalo);
                 extremosSuperiores.Add(intervaloSuperior);
                 extremosInferiores.Add(intervaloInferior);
                 double prob = (1 - Math.Exp(-lambda * extremosSuperiores[i])) - (1 - Math.Exp(-lambda * extremosInferiores[i]));
                 probabilidadCAnchoIntervalo.Add(prob);
-                frecEsperadas.Add(Math.Round(prob * (double)nrosAleatorios.Count, 4));
+                frecEsperadas.Add(Math.Truncate(prob * (double)nrosAleatorios.Count * 10000)/ 10000);
             }
 
             List<int> listaFrecObservada = new List<int>(new int[cantIntervalos]);
@@ -79,8 +81,8 @@ namespace TP3_SIM
                 intervalo.Value = intervalosLabel[i];
                 observado.Value = listaFrecObservada[i];
                 esperado.Value = frecEsperadas[i];
-                c.Value = Math.Round((Math.Pow((listaFrecObservada[i] - frecEsperadas[i]), 2) / frecEsperadas[i]), 4);
-                AcumC += Math.Round((double)c.Value,4);
+                c.Value = Math.Truncate(Math.Pow((listaFrecObservada[i] - frecEsperadas[i]), 2) / frecEsperadas[i]*10000) / 10000;
+                AcumC += Math.Truncate((double)c.Value * 10000) / 10000;
                 cAcum.Value = AcumC;
 
                 //Agregando las celdas a la fila...
@@ -96,7 +98,7 @@ namespace TP3_SIM
                 serieObservada.Points.AddXY(intervalosLabel[i], listaFrecObservada[i]);
                 serieEsperada.Points.AddXY(intervalosLabel[i], frecEsperadas[i]);
             }
-
+            cAcum = AcumC;
             serieObservada.Name = "Frec.Observada";
             serieEsperada.Name = "Frec.Esperada";
             serieEsperada.IsValueShownAsLabel = true;
@@ -107,6 +109,7 @@ namespace TP3_SIM
             graficoChi.Series.Add(serieObservada);
 
             graficoChi.Update();
+
             
         }
 
