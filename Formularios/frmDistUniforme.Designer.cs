@@ -30,8 +30,6 @@ namespace TP3_SIM.Formularios
         private void InitializeComponent()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -173,14 +171,8 @@ namespace TP3_SIM.Formularios
             // 
             chartArea1.Name = "ChartArea1";
             this.chartDistUniforme.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartDistUniforme.Legends.Add(legend1);
             this.chartDistUniforme.Location = new System.Drawing.Point(453, 36);
             this.chartDistUniforme.Name = "chartDistUniforme";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartDistUniforme.Series.Add(series1);
             this.chartDistUniforme.Size = new System.Drawing.Size(764, 321);
             this.chartDistUniforme.TabIndex = 11;
             this.chartDistUniforme.Text = "chart1";
