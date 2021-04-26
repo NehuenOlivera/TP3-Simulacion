@@ -239,12 +239,21 @@ namespace TP3_SIM
         public void GenerarGraficoNormal()
         {
             Series serieObservada = new Series();
+            Series serieEsperada = new Series();
             for (int i = 0; i < intervalo; i++)
             {
                 serieObservada.Points.AddXY(listaIntervalos[i], frecObservada[i]);
+                serieEsperada.Points.AddXY(listaIntervalos[i], frecEsperada[i]);
             }
             serieObservada.Name = "Frecuencia observada";
+            serieEsperada.Name = "Frecuencia esperada";
+
+            graficoNormal.ChartAreas[0].AxisX.Interval = 1;
+            serieEsperada.IsValueShownAsLabel = true;
+            serieObservada.IsValueShownAsLabel = true;
+
             graficoNormal.Series.Add(serieObservada);
+            graficoNormal.Series.Add(serieEsperada);
 
         }
 
