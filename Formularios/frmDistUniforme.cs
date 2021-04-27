@@ -126,6 +126,7 @@ namespace TP3_SIM.Formularios
 
                 // Generar el gráfico
                 chartDistUniforme.Series.Clear();
+                chartDistUniforme.ResetAutoValues();
 
                 Series serieObservada = new Series();
                 Series serieEsperada = new Series();
@@ -143,7 +144,7 @@ namespace TP3_SIM.Formularios
 
                 chartDistUniforme.ChartAreas[0].AxisX.Interval = 1;
                 chartDistUniforme.Series.Add(serieObservada);
-                chartDistUniforme.Series.Add(serieEsperada);
+                chartDistUniforme.Series.Add(serieEsperada);  
 
                 chartDistUniforme.Update();
 
@@ -167,9 +168,10 @@ namespace TP3_SIM.Formularios
                     colIntervalo.Value = $"{tupla.Item1} - {tupla.Item2}";
                     colFrecObservada.Value = frecObservada;
                     colFrecEsperada.Value = frecEsperada;
-                    colC.Value = c;
-                    colCAcumulada.Value = cAnterior == 0 ? c : c + cAnterior;
+                    colC.Value = c.ToString("F4");
+                    colCAcumulada.Value = cAnterior == 0 ? c.ToString("F4") : (c + cAnterior).ToString("F4");
 
+                    
                     fila.Cells.Add(colIntervalo);
                     fila.Cells.Add(colFrecObservada);
                     fila.Cells.Add(colFrecEsperada);
@@ -179,6 +181,8 @@ namespace TP3_SIM.Formularios
                     gridDistUniformePrueba.Rows.Add(fila);
                     cAnterior += c;
                 }
+
+
             }
             catch (Exception ex)
             {
