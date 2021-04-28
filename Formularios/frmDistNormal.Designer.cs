@@ -29,8 +29,8 @@ namespace TP3_SIM.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.label1 = new System.Windows.Forms.Label();
             this.gridNumDistNormal = new System.Windows.Forms.DataGridView();
             this.colRND1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,11 +47,6 @@ namespace TP3_SIM.Formularios
             this.colC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
-            this.colIntervalo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMarcaClase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFrecObservadaNormal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colProbEsperada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFrecEsperadaNormal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,6 +60,11 @@ namespace TP3_SIM.Formularios
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.colIntervalo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMarcaClase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFrecObservadaNormal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colProbEsperada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFrecEsperadaNormal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridNumDistNormal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grafNomal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDistribucion)).BeginInit();
@@ -94,6 +94,7 @@ namespace TP3_SIM.Formularios
             this.gridNumDistNormal.Location = new System.Drawing.Point(26, 288);
             this.gridNumDistNormal.Name = "gridNumDistNormal";
             this.gridNumDistNormal.ReadOnly = true;
+            this.gridNumDistNormal.RowHeadersVisible = false;
             this.gridNumDistNormal.RowHeadersWidth = 51;
             this.gridNumDistNormal.RowTemplate.Height = 24;
             this.gridNumDistNormal.Size = new System.Drawing.Size(555, 293);
@@ -133,10 +134,10 @@ namespace TP3_SIM.Formularios
             // 
             // grafNomal
             // 
-            chartArea1.Name = "ChartArea1";
-            this.grafNomal.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.grafNomal.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.grafNomal.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.grafNomal.Legends.Add(legend2);
             this.grafNomal.Location = new System.Drawing.Point(26, 617);
             this.grafNomal.Name = "grafNomal";
             this.grafNomal.Size = new System.Drawing.Size(1294, 274);
@@ -157,6 +158,7 @@ namespace TP3_SIM.Formularios
             this.gridDistribucion.Location = new System.Drawing.Point(628, 44);
             this.gridDistribucion.Name = "gridDistribucion";
             this.gridDistribucion.ReadOnly = true;
+            this.gridDistribucion.RowHeadersVisible = false;
             this.gridDistribucion.RowHeadersWidth = 51;
             this.gridDistribucion.RowTemplate.Height = 24;
             this.gridDistribucion.Size = new System.Drawing.Size(692, 256);
@@ -177,6 +179,7 @@ namespace TP3_SIM.Formularios
             this.gridChi.Location = new System.Drawing.Point(628, 338);
             this.gridChi.Name = "gridChi";
             this.gridChi.ReadOnly = true;
+            this.gridChi.RowHeadersVisible = false;
             this.gridChi.RowHeadersWidth = 51;
             this.gridChi.RowTemplate.Height = 24;
             this.gridChi.Size = new System.Drawing.Size(692, 243);
@@ -238,46 +241,6 @@ namespace TP3_SIM.Formularios
             this.label6.Size = new System.Drawing.Size(226, 17);
             this.label6.TabIndex = 9;
             this.label6.Text = "Prueba de Bondad - Chi Cuadrado";
-            // 
-            // colIntervalo
-            // 
-            this.colIntervalo.HeaderText = "Intervalo";
-            this.colIntervalo.MinimumWidth = 6;
-            this.colIntervalo.Name = "colIntervalo";
-            this.colIntervalo.ReadOnly = true;
-            this.colIntervalo.Width = 70;
-            // 
-            // colMarcaClase
-            // 
-            this.colMarcaClase.HeaderText = "Marca de Clase";
-            this.colMarcaClase.MinimumWidth = 6;
-            this.colMarcaClase.Name = "colMarcaClase";
-            this.colMarcaClase.ReadOnly = true;
-            this.colMarcaClase.Width = 70;
-            // 
-            // colFrecObservadaNormal
-            // 
-            this.colFrecObservadaNormal.HeaderText = "Frec Observada";
-            this.colFrecObservadaNormal.MinimumWidth = 6;
-            this.colFrecObservadaNormal.Name = "colFrecObservadaNormal";
-            this.colFrecObservadaNormal.ReadOnly = true;
-            this.colFrecObservadaNormal.Width = 70;
-            // 
-            // colProbEsperada
-            // 
-            this.colProbEsperada.HeaderText = "Prob Esperada";
-            this.colProbEsperada.MinimumWidth = 6;
-            this.colProbEsperada.Name = "colProbEsperada";
-            this.colProbEsperada.ReadOnly = true;
-            this.colProbEsperada.Width = 70;
-            // 
-            // colFrecEsperadaNormal
-            // 
-            this.colFrecEsperadaNormal.HeaderText = "Frec Esperada";
-            this.colFrecEsperadaNormal.MinimumWidth = 6;
-            this.colFrecEsperadaNormal.Name = "colFrecEsperadaNormal";
-            this.colFrecEsperadaNormal.ReadOnly = true;
-            this.colFrecEsperadaNormal.Width = 70;
             // 
             // label7
             // 
@@ -400,11 +363,51 @@ namespace TP3_SIM.Formularios
             this.label9.TabIndex = 13;
             this.label9.Text = "Grafico";
             // 
+            // colIntervalo
+            // 
+            this.colIntervalo.HeaderText = "Intervalo";
+            this.colIntervalo.MinimumWidth = 6;
+            this.colIntervalo.Name = "colIntervalo";
+            this.colIntervalo.ReadOnly = true;
+            // 
+            // colMarcaClase
+            // 
+            this.colMarcaClase.HeaderText = "Marca de Clase";
+            this.colMarcaClase.MinimumWidth = 6;
+            this.colMarcaClase.Name = "colMarcaClase";
+            this.colMarcaClase.ReadOnly = true;
+            this.colMarcaClase.Width = 70;
+            // 
+            // colFrecObservadaNormal
+            // 
+            this.colFrecObservadaNormal.HeaderText = "Frec Observada";
+            this.colFrecObservadaNormal.MinimumWidth = 6;
+            this.colFrecObservadaNormal.Name = "colFrecObservadaNormal";
+            this.colFrecObservadaNormal.ReadOnly = true;
+            this.colFrecObservadaNormal.Width = 70;
+            // 
+            // colProbEsperada
+            // 
+            this.colProbEsperada.HeaderText = "Prob Esperada";
+            this.colProbEsperada.MinimumWidth = 6;
+            this.colProbEsperada.Name = "colProbEsperada";
+            this.colProbEsperada.ReadOnly = true;
+            this.colProbEsperada.Width = 70;
+            // 
+            // colFrecEsperadaNormal
+            // 
+            this.colFrecEsperadaNormal.HeaderText = "Frec Esperada";
+            this.colFrecEsperadaNormal.MinimumWidth = 6;
+            this.colFrecEsperadaNormal.Name = "colFrecEsperadaNormal";
+            this.colFrecEsperadaNormal.ReadOnly = true;
+            this.colFrecEsperadaNormal.Width = 70;
+            // 
             // frmDistNormal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1632, 980);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1632, 921);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox1);
@@ -450,11 +453,6 @@ namespace TP3_SIM.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn colC;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCAcum;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIntervalo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMarcaClase;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFrecObservadaNormal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colProbEsperada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFrecEsperadaNormal;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -468,5 +466,10 @@ namespace TP3_SIM.Formularios
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIntervalo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMarcaClase;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFrecObservadaNormal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProbEsperada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFrecEsperadaNormal;
     }
 }

@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
@@ -32,6 +33,7 @@ namespace TP3_SIM
         private double media;
         private double desviacion;
         private bool impar;
+        private int cantidadNum;
         private double anchoIntervalos;
 
         public GeneradorChiNormal(List<double> listaNumerosNormal, int intervalo, Chart grafico, double media, double desviacion, bool impar)
@@ -54,6 +56,7 @@ namespace TP3_SIM
             this.media = media;
             this.desviacion = desviacion;
             this.impar = impar;
+            this.cantidadNum = impar == true ? numerosDistrNormal.Count - 1 : numerosDistrNormal.Count;
             this.anchoIntervalos = 0;
             grafico.Series.Clear();
         }
@@ -112,7 +115,7 @@ namespace TP3_SIM
 
         public void CalcularFrecObservada()
         {
-            for (int i = 0; i < numerosDistrNormal.Count; i++)
+            for (int i = 0; i < cantidadNum; i++)
             {
                 for (int j = 0; j < extremosSuperiores.Count; j++)
                 {
@@ -130,16 +133,6 @@ namespace TP3_SIM
 
             double prob;
             double calculoIntermedio;
-
-
-
-            //Determino si la cantidad de numeros pedidos es impar o par
-            int cantidadNum;
-            if (impar)
-            {
-                cantidadNum = numerosDistrNormal.Count - 1;
-            }
-            cantidadNum = numerosDistrNormal.Count;
 
             for (int i = 0; i < intervalo; i++)
             {
@@ -179,8 +172,12 @@ namespace TP3_SIM
                 //Variable que representa la suma desde el indice siguiente hasta el final es mayor a 5 
                 double sumaHastaFinal = SumarListaFrecEsperadaDesdeIndice(i + 1);
 
+                if (sumaHastaFinal < 5)
+                {
+                    break;
+                }
 
-                if (frecEsperada[i] < 5 || primero == true)
+                if (frecEsperada[i] < 5 || primero == true )
                 {
                     //Ingresa primer valor a agrupar
                     if (primero == false)
@@ -223,11 +220,30 @@ namespace TP3_SIM
                 }
                 else
                 {
-                    //No se acumulan intervalos
-                    extremosInferioresAcum.Add(extremosInferiores[i]);
-                    extremosSuperioresAcum.Add(extremosSuperiores[i]);
-                    frecEsperadaAcum.Add(frecEsperada[i]);
-                    frecObservadaAcum.Add(frecObservada[i]);
+                    if (sumaHastaFinal < 5)
+                    {
+                        //Sumo las frecEsperada y frecAcum de los intervalos restantes
+                        for (int a= i + 1; a < frecEsperada.Count; a++)
+                        {
+                            frecEspAcum += frecEsperada[a];
+                            frecObsAcum += frecObservada[a];
+
+                        }
+                        //Extremo superior del ultimo intervalo
+                        extremosSuperioresAcum.Add(extremosSuperiores[frecEsperada.Count - 1]);
+                        frecEsperadaAcum.Add(frecEspAcum);
+                        frecObservadaAcum.Add(frecObsAcum);
+                        return;
+                    }
+                    else
+                    {
+                        //No se acumulan intervalos
+                        extremosInferioresAcum.Add(extremosInferiores[i]);
+                        extremosSuperioresAcum.Add(extremosSuperiores[i]);
+                        frecEsperadaAcum.Add(frecEsperada[i]);
+                        frecObservadaAcum.Add(frecObservada[i]);
+                    }
+                    
                 }
 
             }
@@ -287,24 +303,26 @@ namespace TP3_SIM
 
                 gridDistribucion.Rows.Add(fila);
             }
+
         }
 
         public void CargarTablaChi(DataGridView gridChi)
         {
+            List<Tuple<double, double, double, double>> lista = AgruparFrecuencias();
             gridChi.Rows.Clear();
 
             // Calculo de C y CAcum
-            List<double> listaCAcum = new List<double>(new double[frecEsperadaAcum.Count]);
-            List<double> listaC = new List<double>(new double[frecEsperadaAcum.Count]);
+            List<double> listaCAcum = new List<double>(new double[lista.Count]);
+            List<double> listaC = new List<double>(new double[lista.Count]);
             double acumulador = 0;
             for (int i = 0; i < listaC.Count; i++)
             {
-                listaC[i] = Math.Truncate(10000 * (Math.Pow(frecObservadaAcum[i] - frecEsperadaAcum[i], 2) / frecEsperadaAcum[i])) / 10000;
+                listaC[i] = Math.Truncate(10000 * (Math.Pow(lista[i].Item3 - lista[i].Item4, 2) / lista[i].Item4)) / 10000;
                 listaCAcum[i] = Math.Truncate(10000 * (listaC[i] + acumulador)) / 10000;
                 acumulador += listaC[i];
             }
 
-            for (int i = 0; i < extremosInferioresAcum.Count; i++)
+            for (int i = 0; i < lista.Count; i++)
             {
                 DataGridViewRow fila = new DataGridViewRow();
 
@@ -315,10 +333,10 @@ namespace TP3_SIM
                 DataGridViewTextBoxCell colC = new DataGridViewTextBoxCell();
                 DataGridViewTextBoxCell colCAcum = new DataGridViewTextBoxCell();
 
-                colDesde.Value = extremosInferioresAcum[i];
-                colHasta.Value = extremosSuperioresAcum[i];
-                colFrecObs.Value = frecObservadaAcum[i];
-                colFrecEsp.Value = frecEsperadaAcum[i];
+                colDesde.Value = Math.Truncate(100*(lista[i].Item1))/100;
+                colHasta.Value = Math.Truncate(100*(lista[i].Item2))/100;
+                colFrecObs.Value = lista[i].Item3;
+                colFrecEsp.Value = lista[i].Item4;
                 colC.Value = listaC[i];
                 colCAcum.Value = listaCAcum[i];
 
@@ -345,6 +363,19 @@ namespace TP3_SIM
 
             return acumulador;
         }
+
+        public List<Tuple<double, double, double, double>> AgruparFrecuencias()
+        {
+            List<Tuple<double, double, double, double>> lista = AcumuladorDeFrecuencias.crearTuplas(extremosInferiores, extremosSuperiores, frecObservada, frecEsperada);
+            List<Tuple<double, double, double, double>> listaAcum = AcumuladorDeFrecuencias.agrupar(5, lista) ;
+
+            listaAcum.ForEach(Console.WriteLine);
+
+            return listaAcum;
+        }
+
+
+
 
     }
 }
