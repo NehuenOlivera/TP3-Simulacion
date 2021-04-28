@@ -53,6 +53,12 @@ namespace TP3_SIM.Formularios
                 generadorChi.CargarTablaDistribucion(gridDistribucion);
                 generadorChi.CalcularFrecEsperadasAgrupadad();
                 generadorChi.CargarTablaChi(gridChi);
+
+               
+
+
+               
+
             }
             catch (ArgumentException ex)
             {
