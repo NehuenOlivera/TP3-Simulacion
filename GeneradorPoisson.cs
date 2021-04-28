@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP3_SIM
 {
+	//
     class GeneradorPoisson
     { 
         double lambda,a, p;
