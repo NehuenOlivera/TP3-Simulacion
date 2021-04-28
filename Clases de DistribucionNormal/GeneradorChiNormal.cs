@@ -32,6 +32,7 @@ namespace TP3_SIM
         private double media;
         private double desviacion;
         private bool impar;
+        private int cantidadNum;
         private double anchoIntervalos;
 
         public GeneradorChiNormal(List<double> listaNumerosNormal, int intervalo, Chart grafico, double media, double desviacion, bool impar)
@@ -54,6 +55,7 @@ namespace TP3_SIM
             this.media = media;
             this.desviacion = desviacion;
             this.impar = impar;
+            this.cantidadNum = impar == true ? numerosDistrNormal.Count - 1 : numerosDistrNormal.Count;
             this.anchoIntervalos = 0;
             grafico.Series.Clear();
         }
@@ -112,7 +114,7 @@ namespace TP3_SIM
 
         public void CalcularFrecObservada()
         {
-            for (int i = 0; i < numerosDistrNormal.Count; i++)
+            for (int i = 0; i < cantidadNum; i++)
             {
                 for (int j = 0; j < extremosSuperiores.Count; j++)
                 {
@@ -130,16 +132,6 @@ namespace TP3_SIM
 
             double prob;
             double calculoIntermedio;
-
-
-
-            //Determino si la cantidad de numeros pedidos es impar o par
-            int cantidadNum;
-            if (impar)
-            {
-                cantidadNum = numerosDistrNormal.Count - 1;
-            }
-            cantidadNum = numerosDistrNormal.Count;
 
             for (int i = 0; i < intervalo; i++)
             {
