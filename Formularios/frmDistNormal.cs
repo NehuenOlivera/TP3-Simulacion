@@ -27,16 +27,20 @@ namespace TP3_SIM.Formularios
         {
             try
             {
-                if (txtCantNumNormal.Text == "") new ArgumentException("Ingrese una cantidad de numeros valida");
-                int cantNumeros = Int32.Parse(txtCantNumNormal.Text);
-                if (txtMediaNormal.Text == "") new ArgumentException("Ingrese una media valida");
-                double media = Double.Parse(txtMediaNormal.Text);
-                if (txtDesviacionNormal.Text == "") new ArgumentException("Ingrese una desviacion valida");
-                double desviacion = Double.Parse(txtDesviacionNormal.Text);
+                int cantNumeros;
+                double media, desviacion;
+                if (txtCantNumNormal.Text == "") throw new ArgumentException("Ingrese una cantidad de numeros valida");
+                if(!int.TryParse(txtCantNumNormal.Text, out cantNumeros)) throw new ArgumentException("No me ingreses letras por favor!");
+                if (txtMediaNormal.Text == "") throw new ArgumentException("Ingrese una media valida");
+                if (!double.TryParse(txtMediaNormal.Text, out media)) throw new ArgumentException("No me ingreses letras por favor!");
+                if (txtDesviacionNormal.Text == "") throw new ArgumentException("Ingrese una desviacion valida");
+                if (!double.TryParse(txtDesviacionNormal.Text, out desviacion)) throw new ArgumentException("No me ingreses letras por favor!");
                 Int32 intervalos = Int32.Parse(cmbCantIntervalosNormal.Text);
 
+                Console.WriteLine("media " + media);
                 bool impar = true;
                 if (cantNumeros % 2 == 0) impar = false;
+                grafNormal.ResetAutoValues();
 
                 GeneradorNormal generadorNormal = new GeneradorNormal(cantNumeros, media, desviacion);
 
@@ -44,25 +48,17 @@ namespace TP3_SIM.Formularios
 
                 generadorNormal.CargarTablaNumeros(gridNumDistNormal);
 
-                GeneradorChiNormal generadorChi = new GeneradorChiNormal(numDistribucionNormal, intervalos, grafNomal, media, desviacion, impar);
+                GeneradorChiNormal generadorChi = new GeneradorChiNormal(numDistribucionNormal, intervalos, grafNormal, media, desviacion, impar);
 
                 generadorChi.CalcularIntervalos();
                 generadorChi.CalcularFrecObservada();
                 generadorChi.CalcularFrecEsperada();
                 generadorChi.GenerarGraficoNormal();
                 generadorChi.CargarTablaDistribucion(gridDistribucion);
-                generadorChi.CalcularFrecEsperadasAgrupadad();
-                generadorChi.CargarTablaChi(gridChi);
-
-               
-
-
-               
-
+                generadorChi.CargarTablaChi(gridChi);        
             }
             catch (ArgumentException ex)
             {
-
                 MessageBox.Show(ex.Message, "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

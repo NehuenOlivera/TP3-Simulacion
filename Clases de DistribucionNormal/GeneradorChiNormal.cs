@@ -17,18 +17,13 @@ namespace TP3_SIM
     {
         private List<double> numerosDistrNormal { get; set; }
         private List<double> frecObservada { get; set; }
-        private List<double> frecObservadaAcum { get; set; }
         private List<double> probEsperada { get; set; }
         private List<double> frecEsperada { get; set; }
-        private List<double> frecEsperadaAcum { get; set; }
         private List<string> listaIntervalos { get; set; }
-        private List<string> listaIntervalosAcum { get; set; }
         private List<double> marcasDeClase { get; set; }
         private int intervalo { get; set; }
         private List<double> extremosSuperiores { get; set; }
-        private List<double> extremosSuperioresAcum { get; set; }
         private List<double> extremosInferiores { get; set; }
-        private List<double> extremosInferioresAcum { get; set; }
         private Chart graficoNormal { get; set; }
         private double media;
         private double desviacion;
@@ -40,18 +35,13 @@ namespace TP3_SIM
         {
             this.numerosDistrNormal = listaNumerosNormal;
             this.listaIntervalos = new List<string>();
-            this.listaIntervalosAcum = new List<string>();
             this.intervalo = intervalo;
             this.frecObservada = new List<double>(new double[intervalo]);
-            this.frecObservadaAcum = new List<double>();
             this.probEsperada = new List<double>(new double[intervalo]);
             this.frecEsperada = new List<double>(new double[intervalo]);
-            this.frecEsperadaAcum = new List<double>();
             this.marcasDeClase = new List<double>(new double[intervalo]);
             this.extremosInferiores = new List<double>(new double[intervalo]);
-            this.extremosInferioresAcum = new List<double>();
             this.extremosSuperiores = new List<double>(new double[intervalo]);
-            this.extremosSuperioresAcum = new List<double>();
             this.graficoNormal = grafico;
             this.media = media;
             this.desviacion = desviacion;
@@ -156,102 +146,6 @@ namespace TP3_SIM
 
         }
 
-
-        public void CalcularFrecEsperadasAgrupadad()
-        {
-            //Llamo al metodo CalcularFrecEsperada para que se carguen las listas de probabilidad esperada y frecuencia esperada
-            CalcularFrecEsperada();
-
-            //Bandera que indica inicio de intervalo
-            bool primero = false;
-            double frecEspAcum = 0;
-            double frecObsAcum = 0;
-
-            for (int i = 0; i < frecEsperada.Count; i++)
-            {
-                //Variable que representa la suma desde el indice siguiente hasta el final es mayor a 5 
-                double sumaHastaFinal = SumarListaFrecEsperadaDesdeIndice(i + 1);
-
-                if (sumaHastaFinal < 5)
-                {
-                    break;
-                }
-
-                if (frecEsperada[i] < 5 || primero == true )
-                {
-                    //Ingresa primer valor a agrupar
-                    if (primero == false)
-                    {
-                        extremosInferioresAcum.Add(extremosInferiores[i]);
-                        primero = true;
-                    }
-                    frecEspAcum += frecEsperada[i];
-                    frecObsAcum += frecObservada[i];
-
-                    //Verifico si la acumulacion de frec esperadas es mayor a 5 y si la suma desde
-                    //el indice siguiente hasta el final es mayor a 5
-                    if (frecEspAcum >= 5 && sumaHastaFinal > 5)
-                    {
-                        extremosSuperioresAcum.Add(extremosSuperiores[i]);
-                        frecEsperadaAcum.Add(frecEspAcum);
-                        frecObservadaAcum.Add(frecObsAcum);
-                        frecEspAcum = 0;
-                        frecObsAcum = 0;
-                        primero = false;
-                    }
-
-                    //Verfico si la suma desde el indice siguiente hasta el final es menor a 5.
-                    //CONDICION DE CORTE: sera el ultimo intervalo con todos los numeros que restan.
-                    if (sumaHastaFinal < 5)
-                    {
-                        //Sumo las frecEsperada y frecAcum de los intervalos restantes
-                        for (int j = i + 1; j < frecEsperada.Count; j++)
-                        {
-                            frecEspAcum += frecEsperada[j];
-                            frecObsAcum += frecObservada[j];
-
-                        }
-                        //Extremo superior del ultimo intervalo
-                        extremosSuperioresAcum.Add(extremosSuperiores[frecEsperada.Count - 1]);
-                        frecEsperadaAcum.Add(frecEspAcum);
-                        frecObservadaAcum.Add(frecObsAcum);
-                        return;
-                    }
-                }
-                else
-                {
-                    if (sumaHastaFinal < 5)
-                    {
-                        //Sumo las frecEsperada y frecAcum de los intervalos restantes
-                        for (int a= i + 1; a < frecEsperada.Count; a++)
-                        {
-                            frecEspAcum += frecEsperada[a];
-                            frecObsAcum += frecObservada[a];
-
-                        }
-                        //Extremo superior del ultimo intervalo
-                        extremosSuperioresAcum.Add(extremosSuperiores[frecEsperada.Count - 1]);
-                        frecEsperadaAcum.Add(frecEspAcum);
-                        frecObservadaAcum.Add(frecObsAcum);
-                        return;
-                    }
-                    else
-                    {
-                        //No se acumulan intervalos
-                        extremosInferioresAcum.Add(extremosInferiores[i]);
-                        extremosSuperioresAcum.Add(extremosSuperiores[i]);
-                        frecEsperadaAcum.Add(frecEsperada[i]);
-                        frecObservadaAcum.Add(frecObservada[i]);
-                    }
-                    
-                }
-
-            }
-
-        }
-
-
-
         public void GenerarGraficoNormal()
         {
             Series serieObservada = new Series();
@@ -353,16 +247,6 @@ namespace TP3_SIM
             }
         }
 
-        public double SumarListaFrecEsperadaDesdeIndice(int indice)
-        {
-            double acumulador = 0;
-            for (int i = indice; i < frecEsperada.Count; i++)
-            {
-                acumulador += frecEsperada[i];
-            }
-
-            return acumulador;
-        }
 
         public List<Tuple<double, double, double, double>> AgruparFrecuencias()
         {
