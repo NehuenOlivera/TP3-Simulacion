@@ -61,7 +61,7 @@ namespace TP3_SIM
             {
                 for (int j = 0; j < extremosSuperiores.Count; j++)
                 {
-                    if (nrosAleatorios[i] < extremosSuperiores[j] || j == extremosSuperiores.Count -1)
+                    if (nrosAleatorios[i] < extremosSuperiores[j] || j == extremosSuperiores.Count - 1)
                     {
                         listaFrecObservada[j]++;
                         break;

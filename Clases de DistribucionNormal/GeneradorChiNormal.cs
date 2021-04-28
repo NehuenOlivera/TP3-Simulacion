@@ -116,7 +116,7 @@ namespace TP3_SIM
             {
                 for (int j = 0; j < extremosSuperiores.Count; j++)
                 {
-                    if (numerosDistrNormal[i] < extremosSuperiores[j])
+                    if (numerosDistrNormal[i] < extremosSuperiores[j] || j == extremosSuperiores.Count - 1)
                     {
                         frecObservada[j]++;
                         break;
