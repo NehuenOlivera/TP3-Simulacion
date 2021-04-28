@@ -46,7 +46,7 @@ namespace TP3_SIM
             for (int i = 0; i < cantIntervalos; i++)
             {
                 double intervaloInferior = min + (i * anchoIntervalo);
-                double intervaloSuperior = ((i + 1) * anchoIntervalo);
+                double intervaloSuperior = (min + i + 1) * (anchoIntervalo);
                 string intervalo = $"[{intervaloInferior.ToString("F2")}, {intervaloSuperior.ToString("F2")}]";
                 intervalosLabel.Add(intervalo);
                 extremosSuperiores.Add(intervaloSuperior);
