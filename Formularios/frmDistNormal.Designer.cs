@@ -75,10 +75,9 @@ namespace TP3_SIM.Formularios
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(859, 36);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(703, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 25);
+            this.label1.Size = new System.Drawing.Size(146, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Distribucion Normal";
             // 
@@ -92,14 +91,13 @@ namespace TP3_SIM.Formularios
             this.colRND2,
             this.colN1,
             this.colN2});
-            this.gridNumDistNormal.Location = new System.Drawing.Point(36, 432);
-            this.gridNumDistNormal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridNumDistNormal.Location = new System.Drawing.Point(29, 360);
             this.gridNumDistNormal.Name = "gridNumDistNormal";
             this.gridNumDistNormal.ReadOnly = true;
             this.gridNumDistNormal.RowHeadersVisible = false;
             this.gridNumDistNormal.RowHeadersWidth = 51;
             this.gridNumDistNormal.RowTemplate.Height = 24;
-            this.gridNumDistNormal.Size = new System.Drawing.Size(763, 440);
+            this.gridNumDistNormal.Size = new System.Drawing.Size(624, 367);
             this.gridNumDistNormal.TabIndex = 5;
             // 
             // colRND1
@@ -140,10 +138,9 @@ namespace TP3_SIM.Formularios
             this.grafNormal.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.grafNormal.Legends.Add(legend1);
-            this.grafNormal.Location = new System.Drawing.Point(36, 926);
-            this.grafNormal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grafNormal.Location = new System.Drawing.Point(29, 772);
             this.grafNormal.Name = "grafNormal";
-            this.grafNormal.Size = new System.Drawing.Size(1779, 411);
+            this.grafNormal.Size = new System.Drawing.Size(1456, 342);
             this.grafNormal.TabIndex = 6;
             this.grafNormal.Text = "chart1";
             // 
@@ -158,14 +155,13 @@ namespace TP3_SIM.Formularios
             this.colFrecObservadaNormal,
             this.colProbEsperada,
             this.colFrecEsperadaNormal});
-            this.gridDistribucion.Location = new System.Drawing.Point(864, 66);
-            this.gridDistribucion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridDistribucion.Location = new System.Drawing.Point(707, 55);
             this.gridDistribucion.Name = "gridDistribucion";
             this.gridDistribucion.ReadOnly = true;
             this.gridDistribucion.RowHeadersVisible = false;
             this.gridDistribucion.RowHeadersWidth = 51;
             this.gridDistribucion.RowTemplate.Height = 24;
-            this.gridDistribucion.Size = new System.Drawing.Size(952, 384);
+            this.gridDistribucion.Size = new System.Drawing.Size(779, 320);
             this.gridDistribucion.TabIndex = 7;
             // 
             // colIntervalo
@@ -220,14 +216,13 @@ namespace TP3_SIM.Formularios
             this.colFrecEsperada,
             this.colC,
             this.colCAcum});
-            this.gridChi.Location = new System.Drawing.Point(864, 507);
-            this.gridChi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridChi.Location = new System.Drawing.Point(707, 422);
             this.gridChi.Name = "gridChi";
             this.gridChi.ReadOnly = true;
             this.gridChi.RowHeadersVisible = false;
             this.gridChi.RowHeadersWidth = 51;
             this.gridChi.RowTemplate.Height = 24;
-            this.gridChi.Size = new System.Drawing.Size(952, 364);
+            this.gridChi.Size = new System.Drawing.Size(779, 303);
             this.gridChi.TabIndex = 8;
             // 
             // colDesde
@@ -281,10 +276,9 @@ namespace TP3_SIM.Formularios
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(859, 477);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(703, 397);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(314, 25);
+            this.label6.Size = new System.Drawing.Size(252, 20);
             this.label6.TabIndex = 9;
             this.label6.Text = "Prueba de Bondad - Chi Cuadrado";
             // 
@@ -292,73 +286,65 @@ namespace TP3_SIM.Formularios
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(28, 14);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(23, 12);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(354, 44);
+            this.label7.Size = new System.Drawing.Size(302, 38);
             this.label7.TabIndex = 10;
             this.label7.Text = "Distribucion Normal";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 57);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(7, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 25);
+            this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Media (μ) :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 106);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(7, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(149, 25);
+            this.label3.Size = new System.Drawing.Size(117, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Desviacion (σ) :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 158);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(7, 132);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(213, 25);
+            this.label4.Size = new System.Drawing.Size(171, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Cantidad de Numeros :";
             // 
             // txtMediaNormal
             // 
-            this.txtMediaNormal.Location = new System.Drawing.Point(121, 52);
-            this.txtMediaNormal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMediaNormal.Location = new System.Drawing.Point(99, 43);
             this.txtMediaNormal.Name = "txtMediaNormal";
-            this.txtMediaNormal.Size = new System.Drawing.Size(136, 29);
+            this.txtMediaNormal.Size = new System.Drawing.Size(112, 26);
             this.txtMediaNormal.TabIndex = 4;
             // 
             // txtDesviacionNormal
             // 
-            this.txtDesviacionNormal.Location = new System.Drawing.Point(164, 102);
-            this.txtDesviacionNormal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDesviacionNormal.Location = new System.Drawing.Point(134, 85);
             this.txtDesviacionNormal.Name = "txtDesviacionNormal";
-            this.txtDesviacionNormal.Size = new System.Drawing.Size(136, 29);
+            this.txtDesviacionNormal.Size = new System.Drawing.Size(112, 26);
             this.txtDesviacionNormal.TabIndex = 5;
             // 
             // txtCantNumNormal
             // 
-            this.txtCantNumNormal.Location = new System.Drawing.Point(249, 153);
-            this.txtCantNumNormal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCantNumNormal.Location = new System.Drawing.Point(204, 127);
             this.txtCantNumNormal.Name = "txtCantNumNormal";
-            this.txtCantNumNormal.Size = new System.Drawing.Size(136, 29);
+            this.txtCantNumNormal.Size = new System.Drawing.Size(112, 26);
             this.txtCantNumNormal.TabIndex = 6;
             // 
             // btnGenerarNormal
             // 
-            this.btnGenerarNormal.Location = new System.Drawing.Point(562, 153);
-            this.btnGenerarNormal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnGenerarNormal.Location = new System.Drawing.Point(460, 127);
             this.btnGenerarNormal.Name = "btnGenerarNormal";
-            this.btnGenerarNormal.Size = new System.Drawing.Size(138, 78);
+            this.btnGenerarNormal.Size = new System.Drawing.Size(113, 65);
             this.btnGenerarNormal.TabIndex = 7;
             this.btnGenerarNormal.Text = "Generar";
             this.btnGenerarNormal.UseVisualStyleBackColor = true;
@@ -367,20 +353,18 @@ namespace TP3_SIM.Formularios
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 210);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(7, 175);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(217, 25);
+            this.label5.Size = new System.Drawing.Size(174, 20);
             this.label5.TabIndex = 8;
             this.label5.Text = "Cantidad de intervalos :";
             // 
             // cmbCantIntervalosNormal
             // 
             this.cmbCantIntervalosNormal.FormattingEnabled = true;
-            this.cmbCantIntervalosNormal.Location = new System.Drawing.Point(249, 206);
-            this.cmbCantIntervalosNormal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCantIntervalosNormal.Location = new System.Drawing.Point(204, 172);
             this.cmbCantIntervalosNormal.Name = "cmbCantIntervalosNormal";
-            this.cmbCantIntervalosNormal.Size = new System.Drawing.Size(165, 32);
+            this.cmbCantIntervalosNormal.Size = new System.Drawing.Size(136, 28);
             this.cmbCantIntervalosNormal.TabIndex = 9;
             // 
             // groupBox1
@@ -394,11 +378,9 @@ namespace TP3_SIM.Formularios
             this.groupBox1.Controls.Add(this.txtCantNumNormal);
             this.groupBox1.Controls.Add(this.txtMediaNormal);
             this.groupBox1.Controls.Add(this.txtDesviacionNormal);
-            this.groupBox1.Location = new System.Drawing.Point(36, 86);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(29, 72);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(763, 262);
+            this.groupBox1.Size = new System.Drawing.Size(624, 218);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parametros a Ingresar";
@@ -406,29 +388,27 @@ namespace TP3_SIM.Formularios
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(32, 387);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(26, 322);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(193, 25);
+            this.label8.Size = new System.Drawing.Size(157, 20);
             this.label8.TabIndex = 12;
             this.label8.Text = "Numeros Generados";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(32, 896);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(26, 747);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 25);
+            this.label9.Size = new System.Drawing.Size(61, 20);
             this.label9.TabIndex = 13;
             this.label9.Text = "Grafico";
             // 
             // frmDistNormal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(2244, 1382);
+            this.ClientSize = new System.Drawing.Size(1574, 875);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox1);
@@ -440,7 +420,7 @@ namespace TP3_SIM.Formularios
             this.Controls.Add(this.gridNumDistNormal);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.Name = "frmDistNormal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

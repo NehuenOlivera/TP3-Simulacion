@@ -29,6 +29,9 @@ namespace TP3_SIM.Formularios
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,25 +42,27 @@ namespace TP3_SIM.Formularios
             this.nrosAleatoriosPoisson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGenerarPoisson = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridDistPoisson = new System.Windows.Forms.DataGridView();
             this.valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.frecuenciaobservada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.probabilidadesperada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.frecuenciaesperada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.gridChiCuadradoPoisson = new System.Windows.Forms.DataGridView();
             this.Intervalo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FrecObs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FrecEsp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.C = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CAcum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
+            this.chartPoissonChi = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.txtLambda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPoisson)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDistPoisson)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridChiCuadradoPoisson)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartPoissonChi)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -130,7 +135,7 @@ namespace TP3_SIM.Formularios
             this.gridPoisson.Name = "gridPoisson";
             this.gridPoisson.RowHeadersWidth = 62;
             this.gridPoisson.RowTemplate.Height = 28;
-            this.gridPoisson.Size = new System.Drawing.Size(537, 358);
+            this.gridPoisson.Size = new System.Drawing.Size(581, 433);
             this.gridPoisson.TabIndex = 5;
             // 
             // Iteración
@@ -171,20 +176,20 @@ namespace TP3_SIM.Formularios
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Parametros a Ingresar";
             // 
-            // dataGridView1
+            // gridDistPoisson
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridDistPoisson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridDistPoisson.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.valor,
             this.frecuenciaobservada,
             this.probabilidadesperada,
             this.frecuenciaesperada});
-            this.dataGridView1.Location = new System.Drawing.Point(644, 50);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(713, 293);
-            this.dataGridView1.TabIndex = 8;
+            this.gridDistPoisson.Location = new System.Drawing.Point(644, 41);
+            this.gridDistPoisson.Name = "gridDistPoisson";
+            this.gridDistPoisson.RowHeadersWidth = 62;
+            this.gridDistPoisson.RowTemplate.Height = 28;
+            this.gridDistPoisson.Size = new System.Drawing.Size(919, 293);
+            this.gridDistPoisson.TabIndex = 8;
             // 
             // valor
             // 
@@ -228,27 +233,28 @@ namespace TP3_SIM.Formularios
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(640, 27);
+            this.label5.Location = new System.Drawing.Point(640, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(172, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Distribucion Poisson";
             // 
-            // dataGridView2
+            // gridChiCuadradoPoisson
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gridChiCuadradoPoisson.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridChiCuadradoPoisson.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Intervalo,
             this.FrecObs,
             this.FrecEsp,
             this.C,
             this.CAcum});
-            this.dataGridView2.Location = new System.Drawing.Point(644, 410);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
-            this.dataGridView2.RowTemplate.Height = 28;
-            this.dataGridView2.Size = new System.Drawing.Size(876, 295);
-            this.dataGridView2.TabIndex = 11;
+            this.gridChiCuadradoPoisson.Location = new System.Drawing.Point(644, 375);
+            this.gridChiCuadradoPoisson.Name = "gridChiCuadradoPoisson";
+            this.gridChiCuadradoPoisson.RowHeadersWidth = 62;
+            this.gridChiCuadradoPoisson.RowTemplate.Height = 28;
+            this.gridChiCuadradoPoisson.Size = new System.Drawing.Size(1129, 295);
+            this.gridChiCuadradoPoisson.TabIndex = 11;
+            this.gridChiCuadradoPoisson.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // Intervalo
             // 
@@ -289,22 +295,40 @@ namespace TP3_SIM.Formularios
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(644, 384);
+            this.label6.Location = new System.Drawing.Point(640, 352);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(283, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "Prueba de Bondad - Chi Cuadrado";
             // 
+            // chartPoissonChi
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartPoissonChi.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartPoissonChi.Legends.Add(legend1);
+            this.chartPoissonChi.Location = new System.Drawing.Point(51, 685);
+            this.chartPoissonChi.Name = "chartPoissonChi";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartPoissonChi.Series.Add(series1);
+            this.chartPoissonChi.Size = new System.Drawing.Size(1091, 316);
+            this.chartPoissonChi.TabIndex = 13;
+            this.chartPoissonChi.Text = "chart1";
+            // 
             // frmDistPoisson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1844, 1023);
+            this.Controls.Add(this.chartPoissonChi);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.gridChiCuadradoPoisson);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gridDistPoisson);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gridPoisson);
             this.Controls.Add(this.label1);
@@ -314,13 +338,15 @@ namespace TP3_SIM.Formularios
             this.Name = "frmDistPoisson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TP3 - Simulación - Distribución Poisson";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmDistPoisson_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtLambda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPoisson)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDistPoisson)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridChiCuadradoPoisson)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartPoissonChi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,19 +364,20 @@ namespace TP3_SIM.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn nrosAleatoriosPoisson;
         private System.Windows.Forms.Button btnGenerarPoisson;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView gridDistPoisson;
         private System.Windows.Forms.DataGridViewTextBoxColumn valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn frecuenciaobservada;
         private System.Windows.Forms.DataGridViewTextBoxColumn probabilidadesperada;
         private System.Windows.Forms.DataGridViewTextBoxColumn frecuenciaesperada;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView gridChiCuadradoPoisson;
         private System.Windows.Forms.DataGridViewTextBoxColumn Intervalo;
         private System.Windows.Forms.DataGridViewTextBoxColumn FrecObs;
         private System.Windows.Forms.DataGridViewTextBoxColumn FrecEsp;
         private System.Windows.Forms.DataGridViewTextBoxColumn C;
         private System.Windows.Forms.DataGridViewTextBoxColumn CAcum;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartPoissonChi;
     }
 }

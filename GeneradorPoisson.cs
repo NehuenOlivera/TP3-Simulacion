@@ -17,13 +17,13 @@ namespace TP3_SIM
 
         }
 
-        public List<decimal> Generar(int cantidad)
+        public List<int> Generar(int cantidad)
         {
             p = 1;
             x = -1;
             a = Math.Exp(-lambda);
             Random rand = new Random();
-            List<decimal> lista = new List<decimal>();
+            List<int> lista = new List<int>();
             for (int i = 0; i < cantidad; i++)
             {
                 p = 1;
