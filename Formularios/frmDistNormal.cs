@@ -36,20 +36,13 @@ namespace TP3_SIM.Formularios
                 if (txtDesviacionNormal.Text == "") throw new ArgumentException("Ingrese una desviacion valida");
                 if (!double.TryParse(txtDesviacionNormal.Text, out desviacion)) throw new ArgumentException("No me ingreses letras por favor!");
                 Int32 intervalos = Int32.Parse(cmbCantIntervalosNormal.Text);
-
-                Console.WriteLine("media " + media);
                 bool impar = true;
                 if (cantNumeros % 2 == 0) impar = false;
                 grafNormal.ResetAutoValues();
-
                 GeneradorNormal generadorNormal = new GeneradorNormal(cantNumeros, media, desviacion);
-
                 List<double> numDistribucionNormal = generadorNormal.CalcularNormal();
-
                 generadorNormal.CargarTablaNumeros(gridNumDistNormal);
-
                 GeneradorChiNormal generadorChi = new GeneradorChiNormal(numDistribucionNormal, intervalos, grafNormal, media, desviacion, impar);
-
                 generadorChi.CalcularIntervalos();
                 generadorChi.CalcularFrecObservada();
                 generadorChi.CalcularFrecEsperada();

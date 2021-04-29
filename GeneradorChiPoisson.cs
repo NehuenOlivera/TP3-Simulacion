@@ -26,7 +26,6 @@ namespace TP3_SIM
         {
             List<Tuple<double, double, double, double>> lista = AgruparFrecuencias();
             gridChi.Rows.Clear();
-
             // Calculo de C y CAcum
             List<double> listaCAcum = new List<double>(new double[lista.Count]);
             List<double> listaC = new List<double>(new double[lista.Count]);
@@ -37,67 +36,31 @@ namespace TP3_SIM
                 listaCAcum[i] = Math.Truncate(10000 * (listaC[i] + acumulador)) / 10000;
                 acumulador += listaC[i];
             }
-
             for (int i = 0; i < lista.Count; i++)
             {
                 DataGridViewRow fila = new DataGridViewRow();
-
                 DataGridViewTextBoxCell colIntervalo = new DataGridViewTextBoxCell();
-                //DataGridViewTextBoxCell colDesde = new DataGridViewTextBoxCell();
-                //DataGridViewTextBoxCell colHasta = new DataGridViewTextBoxCell();
                 DataGridViewTextBoxCell colFrecObs = new DataGridViewTextBoxCell();
                 DataGridViewTextBoxCell colFrecEsp = new DataGridViewTextBoxCell();
                 DataGridViewTextBoxCell colC = new DataGridViewTextBoxCell();
                 DataGridViewTextBoxCell colCAcum = new DataGridViewTextBoxCell();
-
                 colIntervalo.Value = $"[{lista[i].Item1}, {lista[i].Item2}]";
-                //colDesde.Value = Math.Truncate(100 * (lista[i].Item1)) / 100;
-                //colHasta.Value = Math.Truncate(100 * (lista[i].Item2)) / 100;
                 colFrecObs.Value = lista[i].Item3;
                 colFrecEsp.Value = lista[i].Item4;
                 colC.Value = listaC[i];
                 colCAcum.Value = listaCAcum[i];
-
                 fila.Cells.Add(colIntervalo);
-                //fila.Cells.Add(colDesde);
-                //fila.Cells.Add(colHasta);
                 fila.Cells.Add(colFrecObs);
                 fila.Cells.Add(colFrecEsp);
                 fila.Cells.Add(colC);
                 fila.Cells.Add(colCAcum);
-
                 gridChi.Rows.Add(fila);
-
-
-            }
-        }
-
-        public void printvalores()
-        {
-            foreach (double i in extremosInferiores)
-            {
-                Console.WriteLine(i);
-            }
-            foreach (double i in extremosSuperiores)
-            {
-                Console.WriteLine(i);
-            }
-            foreach (double i in frecEsperada)
-            {
-                Console.WriteLine(i);
-            }
-            foreach (double i in frecObservada)
-            {
-                Console.WriteLine(i);
             }
         }
         public List<Tuple<double, double, double, double>> AgruparFrecuencias()
         {
             List<Tuple<double, double, double, double>> lista = AcumuladorDeFrecuencias.crearTuplas(extremosInferiores, extremosSuperiores, frecObservada, frecEsperada);
             List<Tuple<double, double, double, double>> listaAcum = AcumuladorDeFrecuencias.agrupar(5, lista);
-
-            listaAcum.ForEach(Console.WriteLine);
-
             return listaAcum;
         }
     }

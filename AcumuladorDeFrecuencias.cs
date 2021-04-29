@@ -65,7 +65,8 @@ namespace TP3_SIM
                         if (indice + 1 == lista.Count)
                         {
                             estoyEnElUltimoElemento = true;
-                            elem2 = lista[indice - 1];
+                            elem2 = elem1;
+                            elem1 = lista[indice - 1];
                         }
                         else
                         {
